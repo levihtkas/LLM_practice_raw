@@ -1,0 +1,11 @@
+{
+  "rules": [
+    {
+      "pattern": "**",
+      "disableAutocomplete": true,
+      "disableAgents": true,
+      "disableNLSuggestions": true,
+      "blockContext": true
+    }
+  ]
+}
