@@ -9,7 +9,7 @@ load_dotenv(override=True)
 model = "gpt-4.1-nano"
 db_name = "vector_db"
 
-embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 reterival_k=5
 
 SYSTEM_PROMPT = """
