@@ -25,6 +25,4 @@ The course is an 8-week, hands-on journey focused on building real AI applicatio
 
 🏗️ Projects: from brochure generators to AI knowledge workers and agent systems
 Udemy
-+2
-Edward Donner
-+2
+
