@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from datasets import Dataset, DatasetDict, load_dataset
-from typing import Optional, Self
+from typing import Optional
 
 
 PREFIX = "Price is $"
@@ -30,19 +30,19 @@ class Item(BaseModel):
     def __repr__(self) -> str:
         return f"<{self.title} = ${self.price}>"
 
-    @staticmethod
-    def push_to_hub(dataset_name: str, train: list[Self], val: list[Self], test: list[Self]):
-        """Push Item lists to HuggingFace Hub"""
-        DatasetDict(
-            {
-                "train": Dataset.from_list([item.model_dump() for item in train]),
-                "validation": Dataset.from_list([item.model_dump() for item in val]),
-                "test": Dataset.from_list([item.model_dump() for item in test]),
-            }
-        ).push_to_hub(dataset_name)
+    # @staticmethod
+    # def push_to_hub(dataset_name: str, train: list[Self], val: list[Self], test: list[Self]):
+    #     """Push Item lists to HuggingFace Hub"""
+    #     DatasetDict(
+    #         {
+    #             "train": Dataset.from_list([item.model_dump() for item in train]),
+    #             "validation": Dataset.from_list([item.model_dump() for item in val]),
+    #             "test": Dataset.from_list([item.model_dump() for item in test]),
+    #         }
+    #     ).push_to_hub(dataset_name)
 
     @classmethod
-    def from_hub(cls, dataset_name: str) -> tuple[list[Self], list[Self], list[Self]]:
+    def from_hub(cls, dataset_name: str):
         """Load from HuggingFace Hub and reconstruct Items"""
         ds = load_dataset(dataset_name)
         return (
